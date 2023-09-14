@@ -58,15 +58,11 @@
                 </executions>
                 <configuration>
                     <packageName>com.rs.client.generated</packageName>
-                    <!--                    <wsdlDirectory>src/main/resources/wsdl</wsdlDirectory>-->
-                    <!--                    <wsdlFiles>-->
-                    <!--                        <wsdlFile>rs_WayBillService.asmx_WSDL.xml</wsdlFile>-->
-                    <!--                    </wsdlFiles>-->
                     <wsdlUrls>
                         <wsdlUrl>https://services.rs.ge/WayBillService/WayBillService.asmx?WSDL</wsdlUrl>
                     </wsdlUrls>
-                    <sourceDestDir>${sourcesDir}</sourceDestDir>
-                    <destDir>${classesDir}</destDir>
+                    <keep>true</keep>
+                    <sourceDestDir>src/main/java</sourceDestDir>
                     <extension>true</extension>
                 </configuration>
             </plugin>
