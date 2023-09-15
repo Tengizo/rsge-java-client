@@ -1,44 +1,36 @@
 package com.rs.client.service;
 
+import com.rs.client.exceptions.RsClientException;
+import com.rs.client.exceptions.ExceptionType;
 import com.rs.client.generated.GetServiceUsersResponse;
 import com.rs.client.generated.WayBills;
 import com.rs.client.generated.WayBillsSoap;
+import com.rs.client.model.Result;
 import com.rs.client.model.ServiceUser;
 import com.rs.client.model.ServiceUsers;
+import com.rs.client.util.XmlUnmarshaller;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
 import org.w3c.dom.Node;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class ServiceUsersService {
 
 
-    public void getServiceUsers() {
+    public ServiceUsers getServiceUsers(String userName, String userPassword) {
 
         WayBills wayBills = new WayBills();
         WayBillsSoap wayBillsSoap = wayBills.getWayBillsSoap();
-        GetServiceUsersResponse.GetServiceUsersResult serviceUsers = wayBillsSoap.getServiceUsers("tbili2si", "123456");
-        ArrayList<ServiceUser> users = getObjectFromXml(serviceUsers.getContent());
+        GetServiceUsersResponse.GetServiceUsersResult serviceUsers = wayBillsSoap.getServiceUsers(userName, userPassword);
+        ServiceUsers users = XmlUnmarshaller.getObjectFromXml(serviceUsers.getContent().get(0), ServiceUsers.class);
         assert users != null;
-        users.forEach(e -> System.out.println(e.toString()));
-
+        users.getServiceUsers().forEach(e -> System.out.println(e.toString()));
+        return users;
     }
 
-    private ArrayList<ServiceUser> getObjectFromXml(List<Object> serviceUsers) {
-        try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(ServiceUsers.class);
-            Unmarshaller um = jaxbContext.createUnmarshaller();
-            ServiceUsers serviceUsersOBj = (ServiceUsers) um.unmarshal((Node) serviceUsers.get(0));
-            return (ArrayList<ServiceUser>) serviceUsersOBj.getServiceUsers();
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 
 
 }

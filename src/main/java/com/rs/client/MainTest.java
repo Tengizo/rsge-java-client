@@ -2,7 +2,9 @@ package com.rs.client;
 
 import com.rs.client.generated.*;
 import com.rs.client.model.ServiceUsers;
+import com.rs.client.model.WayBillsResponse;
 import com.rs.client.service.ServiceUsersService;
+import com.rs.client.service.WayBillService;
 import jakarta.xml.ws.Holder;
 
 public class MainTest {
@@ -23,6 +25,10 @@ public class MainTest {
 
 
         ServiceUsersService serviceUsersService = new ServiceUsersService();
-        serviceUsersService.getServiceUsers();
+        serviceUsersService.getServiceUsers("tbilisi", "123456");
+
+        WayBillService wayBillService = new WayBillService();
+        WayBillsResponse resp = wayBillService.getWayBills("KAXALAKALADZE:206322102", "kaxala");
+        resp.getWayBill().forEach(e-> System.out.println(e.toString()));
     }
 }
