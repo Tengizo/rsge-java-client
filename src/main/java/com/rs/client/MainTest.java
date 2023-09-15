@@ -1,6 +1,8 @@
 package com.rs.client;
 
 import com.rs.client.generated.*;
+import com.rs.client.model.ServiceUsers;
+import com.rs.client.service.ServiceUsersService;
 import jakarta.xml.ws.Holder;
 
 public class MainTest {
@@ -18,5 +20,9 @@ public class MainTest {
         GetServiceUsersResponse.GetServiceUsersResult tbilisi = soap.getServiceUsers("tbilisi", "123456");
 //        Object k = soap.chekServiceUser("", "123456");
         System.out.println("");
+
+
+        ServiceUsersService serviceUsersService = new ServiceUsersService();
+        serviceUsersService.getServiceUsers();
     }
 }
