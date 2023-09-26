@@ -6,36 +6,18 @@ import java.util.List;
 
 @XmlRootElement(name = "ServiceUsers")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = { "ServiceUsers", "xmlns", "text"})
+@XmlType(propOrder = {"serviceUsers"})
 @XmlSeeAlso(ServiceUser.class)
 public class ServiceUsers {
-	@XmlMixed
-	@XmlAnyElement(lax = true)
-	private List<ServiceUser> ServiceUsers;
-	private Object xmlns;
-	private String text;
+    @XmlMixed
+    @XmlAnyElement(lax = true)
+    private List<ServiceUser> serviceUsers;
 
-	public List<ServiceUser> getServiceUsers() {
-		return ServiceUsers;
-	}
+    public List<ServiceUser> getServiceUsers() {
+        return serviceUsers;
+    }
 
-	public void setServiceUsers(List<ServiceUser> serviceUsers) {
-		this.ServiceUsers = serviceUsers;
-	}
-
-	public Object getXmlns() {
-		return xmlns;
-	}
-
-	public void setXmlns(Object xmlns) {
-		this.xmlns = xmlns;
-	}
-
-	public String getText() {
-		return text;
-	}
-
-	public void setText(String text) {
-		this.text = text;
-	}
+    public void setServiceUsers(List<ServiceUser> serviceUsers) {
+        this.serviceUsers = serviceUsers;
+    }
 }

@@ -9,52 +9,52 @@ import java.util.Date;
 
 @XmlRootElement(name = "WAYBILL")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType( propOrder = {"ID", "TYPE", "CREATE_DATE", "BUYER_TIN", "BUYER_NAME", "START_ADDRESS", "END_ADDRESS", "DRIVER_TIN", "DRIVER_NAME",
+@XmlType(propOrder = {"ID", "type", "CREATE_DATE", "BUYER_TIN", "BUYER_NAME", "START_ADDRESS", "END_ADDRESS", "DRIVER_TIN", "DRIVER_NAME",
         "TRANSPORT_COAST", "STATUS", "ACTIVATE_DATE", "FULL_AMOUNT", "CAR_NUMBER", "WAYBILL_NUMBER", "S_USER_ID", "BEGIN_DATE", "IS_CONFIRMED",
         "IS_CORRECTED", "BUYER_ST", "IS_MED", "RECEIVER_INFO", "INVOICE_ID", "DELIVERY_DATE", "CLOSE_DATE", "RECEPTION_INFO", "WAYBILL_COMMENT"})
 public class WayBill {
-    private int ID;
-    private int TYPE;
+    private String ID;
+    private Integer type;
     private Date CREATE_DATE;
-    private double BUYER_TIN;
+    private String BUYER_TIN;
     private String BUYER_NAME;
     private String START_ADDRESS;
     private String END_ADDRESS;
-    private double DRIVER_TIN;
+    private String DRIVER_TIN;
     private String DRIVER_NAME;
-    private int TRANSPORT_COAST;
-    private int STATUS;
+    private Integer TRANSPORT_COAST;
+    private Integer STATUS;
     private Date ACTIVATE_DATE;
-    private int FULL_AMOUNT;
+    private Long FULL_AMOUNT;
     private String CAR_NUMBER;
-    private int WAYBILL_NUMBER;
-    private int S_USER_ID;
+    private String WAYBILL_NUMBER;
+    private String S_USER_ID;
     private Date BEGIN_DATE;
-    private int IS_CONFIRMED;
-    private int IS_CORRECTED;
-    private int BUYER_ST;
-    private int IS_MED;
+    private Integer IS_CONFIRMED;
+    private Integer IS_CORRECTED;
+    private Integer BUYER_ST;
+    private Integer IS_MED;
     private String RECEIVER_INFO;
-    private int INVOICE_ID;
+    private String INVOICE_ID;
     private Date DELIVERY_DATE;
     private Date CLOSE_DATE;
     private String RECEPTION_INFO;
     private String WAYBILL_COMMENT;
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
-    public int getTYPE() {
-        return TYPE;
+    public Integer getType() {
+        return type;
     }
 
-    public void setTYPE(int TYPE) {
-        this.TYPE = TYPE;
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     public Date getCREATE_DATE() {
@@ -65,11 +65,11 @@ public class WayBill {
         this.CREATE_DATE = CREATE_DATE;
     }
 
-    public double getBUYER_TIN() {
+    public String getBUYER_TIN() {
         return BUYER_TIN;
     }
 
-    public void setBUYER_TIN(double BUYER_TIN) {
+    public void setBUYER_TIN(String BUYER_TIN) {
         this.BUYER_TIN = BUYER_TIN;
     }
 
@@ -97,11 +97,11 @@ public class WayBill {
         this.END_ADDRESS = END_ADDRESS;
     }
 
-    public double getDRIVER_TIN() {
+    public String getDRIVER_TIN() {
         return DRIVER_TIN;
     }
 
-    public void setDRIVER_TIN(double DRIVER_TIN) {
+    public void setDRIVER_TIN(String DRIVER_TIN) {
         this.DRIVER_TIN = DRIVER_TIN;
     }
 
@@ -113,19 +113,19 @@ public class WayBill {
         this.DRIVER_NAME = DRIVER_NAME;
     }
 
-    public int getTRANSPORT_COAST() {
+    public Integer getTRANSPORT_COAST() {
         return TRANSPORT_COAST;
     }
 
-    public void setTRANSPORT_COAST(int TRANSPORT_COAST) {
+    public void setTRANSPORT_COAST(Integer TRANSPORT_COAST) {
         this.TRANSPORT_COAST = TRANSPORT_COAST;
     }
 
-    public int getSTATUS() {
+    public Integer getSTATUS() {
         return STATUS;
     }
 
-    public void setSTATUS(int STATUS) {
+    public void setSTATUS(Integer STATUS) {
         this.STATUS = STATUS;
     }
 
@@ -137,11 +137,11 @@ public class WayBill {
         this.ACTIVATE_DATE = ACTIVATE_DATE;
     }
 
-    public int getFULL_AMOUNT() {
+    public Long getFULL_AMOUNT() {
         return FULL_AMOUNT;
     }
 
-    public void setFULL_AMOUNT(int FULL_AMOUNT) {
+    public void setFULL_AMOUNT(Long FULL_AMOUNT) {
         this.FULL_AMOUNT = FULL_AMOUNT;
     }
 
@@ -153,19 +153,19 @@ public class WayBill {
         this.CAR_NUMBER = CAR_NUMBER;
     }
 
-    public int getWAYBILL_NUMBER() {
+    public String getWAYBILL_NUMBER() {
         return WAYBILL_NUMBER;
     }
 
-    public void setWAYBILL_NUMBER(int WAYBILL_NUMBER) {
+    public void setWAYBILL_NUMBER(String WAYBILL_NUMBER) {
         this.WAYBILL_NUMBER = WAYBILL_NUMBER;
     }
 
-    public int getS_USER_ID() {
+    public String getS_USER_ID() {
         return S_USER_ID;
     }
 
-    public void setS_USER_ID(int s_USER_ID) {
+    public void setS_USER_ID(String s_USER_ID) {
         S_USER_ID = s_USER_ID;
     }
 
@@ -177,35 +177,35 @@ public class WayBill {
         this.BEGIN_DATE = BEGIN_DATE;
     }
 
-    public int getIS_CONFIRMED() {
+    public Integer getIS_CONFIRMED() {
         return IS_CONFIRMED;
     }
 
-    public void setIS_CONFIRMED(int IS_CONFIRMED) {
+    public void setIS_CONFIRMED(Integer IS_CONFIRMED) {
         this.IS_CONFIRMED = IS_CONFIRMED;
     }
 
-    public int getIS_CORRECTED() {
+    public Integer getIS_CORRECTED() {
         return IS_CORRECTED;
     }
 
-    public void setIS_CORRECTED(int IS_CORRECTED) {
+    public void setIS_CORRECTED(Integer IS_CORRECTED) {
         this.IS_CORRECTED = IS_CORRECTED;
     }
 
-    public int getBUYER_ST() {
+    public Integer getBUYER_ST() {
         return BUYER_ST;
     }
 
-    public void setBUYER_ST(int BUYER_ST) {
+    public void setBUYER_ST(Integer BUYER_ST) {
         this.BUYER_ST = BUYER_ST;
     }
 
-    public int getIS_MED() {
+    public Integer getIS_MED() {
         return IS_MED;
     }
 
-    public void setIS_MED(int IS_MED) {
+    public void setIS_MED(Integer IS_MED) {
         this.IS_MED = IS_MED;
     }
 
@@ -217,11 +217,11 @@ public class WayBill {
         this.RECEIVER_INFO = RECEIVER_INFO;
     }
 
-    public int getINVOICE_ID() {
+    public String getINVOICE_ID() {
         return INVOICE_ID;
     }
 
-    public void setINVOICE_ID(int INVOICE_ID) {
+    public void setINVOICE_ID(String INVOICE_ID) {
         this.INVOICE_ID = INVOICE_ID;
     }
 

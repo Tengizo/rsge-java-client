@@ -9,7 +9,6 @@ public class Result {
 	private Integer STATUS;
 //	public Object SUB_WAYBILLS;
 //	public Object GOODS_LIST;
-//	public Object xmlns;
 	private String text;
 
 	public Integer getSTATUS() {

@@ -4,7 +4,7 @@ import jakarta.xml.bind.annotation.*;
 
 @XmlRootElement(name = "ServiceUser")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "",propOrder = { "ID", "USER_NAME", "UN_ID","IP","NAME"})
+@XmlType(propOrder = { "ID", "USER_NAME", "UN_ID","IP","NAME"})
 public class ServiceUser {
 	private Integer ID;
 	private String USER_NAME;
