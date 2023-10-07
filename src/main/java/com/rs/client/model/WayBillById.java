@@ -1,12 +1,14 @@
 package com.rs.client.model;
 
-import jakarta.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-@XmlRootElement(name = "WAYBILL")
+@XmlRootElement(name = "WAYBILL", namespace = "")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = {"SUB_WAYBILLS", "GOODS_LIST", "WOOD_DOCS_LIST", "ID", "TYPE", "CREATE_DATE", "BUYER_TIN", "CHEK_BUYER_TIN", "BUYER_NAME", "START_ADDRESS",
         "END_ADDRESS", "DRIVER_TIN", "CHEK_DRIVER_TIN", "DRIVER_NAME", "TRANSPORT_COAST", "RECEPTION_INFO", "RECEIVER_INFO", "DELIVERY_DATE", "STATUS",
@@ -456,5 +458,60 @@ public class WayBillById implements Serializable {
 
     public void setIS_MED(Integer IS_MED) {
         this.IS_MED = IS_MED;
+    }
+
+    @Override
+    public String toString() {
+        return "WayBillById{" +
+                "SUB_WAYBILLS=" + SUB_WAYBILLS +
+                ", GOODS_LIST=" + GOODS_LIST +
+                ", WOOD_DOCS_LIST=" + WOOD_DOCS_LIST +
+                ", ID='" + ID + '\'' +
+                ", TYPE=" + TYPE +
+                ", CREATE_DATE=" + CREATE_DATE +
+                ", BUYER_TIN='" + BUYER_TIN + '\'' +
+                ", CHEK_BUYER_TIN=" + CHEK_BUYER_TIN +
+                ", BUYER_NAME='" + BUYER_NAME + '\'' +
+                ", START_ADDRESS='" + START_ADDRESS + '\'' +
+                ", END_ADDRESS='" + END_ADDRESS + '\'' +
+                ", DRIVER_TIN='" + DRIVER_TIN + '\'' +
+                ", CHEK_DRIVER_TIN=" + CHEK_DRIVER_TIN +
+                ", DRIVER_NAME='" + DRIVER_NAME + '\'' +
+                ", TRANSPORT_COAST=" + TRANSPORT_COAST +
+                ", RECEPTION_INFO='" + RECEPTION_INFO + '\'' +
+                ", RECEIVER_INFO='" + RECEIVER_INFO + '\'' +
+                ", DELIVERY_DATE='" + DELIVERY_DATE + '\'' +
+                ", STATUS=" + STATUS +
+                ", SELER_UN_ID='" + SELER_UN_ID + '\'' +
+                ", ACTIVATE_DATE=" + ACTIVATE_DATE +
+                ", PAR_ID='" + PAR_ID + '\'' +
+                ", FULL_AMOUNT=" + FULL_AMOUNT +
+                ", FULL_AMOUNT_TXT='" + FULL_AMOUNT_TXT + '\'' +
+                ", CAR_NUMBER='" + CAR_NUMBER + '\'' +
+                ", WAYBILL_NUMBER='" + WAYBILL_NUMBER + '\'' +
+                ", CLOSE_DATE=" + CLOSE_DATE +
+                ", S_USER_ID='" + S_USER_ID + '\'' +
+                ", BEGIN_DATE=" + BEGIN_DATE +
+                ", TRAN_COST_PAYER=" + TRAN_COST_PAYER +
+                ", TRANS_ID='" + TRANS_ID + '\'' +
+                ", TRANS_TXT='" + TRANS_TXT + '\'' +
+                ", COMMENT='" + COMMENT + '\'' +
+                ", IS_CONFIRMED=" + IS_CONFIRMED +
+                ", INVOICE_ID='" + INVOICE_ID + '\'' +
+                ", CONFIRMATION_DATE=" + CONFIRMATION_DATE +
+                ", SELLER_TIN='" + SELLER_TIN + '\'' +
+                ", SELLER_NAME='" + SELLER_NAME + '\'' +
+                ", WOOD_LABELS='" + WOOD_LABELS + '\'' +
+                ", CATEGORY='" + CATEGORY + '\'' +
+                ", ORIGIN_TYPE='" + ORIGIN_TYPE + '\'' +
+                ", ORIGIN_TEXT='" + ORIGIN_TEXT + '\'' +
+                ", BUYER_S_USER_ID='" + BUYER_S_USER_ID + '\'' +
+                ", TOTAL_QUANTITY=" + TOTAL_QUANTITY +
+                ", TRANSPORTER_TIN='" + TRANSPORTER_TIN + '\'' +
+                ", CUST_STATUS='" + CUST_STATUS + '\'' +
+                ", CUST_NAME='" + CUST_NAME + '\'' +
+                ", CORRECTION_DATE=" + CORRECTION_DATE +
+                ", IS_MED=" + IS_MED +
+                '}';
     }
 }

@@ -1,14 +1,9 @@
 package com.rs.client.service;
 
 import com.rs.client.generated.*;
-import com.rs.client.model.SaveWaybillRequest;
-import com.rs.client.model.WayBill;
-import com.rs.client.model.WayBillById;
-import com.rs.client.model.WayBillsResponse;
-import com.rs.client.model.request.waybill;
+import com.rs.client.model.*;
 import com.rs.client.utils.XmlUnmarshaller;
 import com.rs.client.utils.XmlUtils;
-import jakarta.xml.ws.WebServiceFeature;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.util.Date;
@@ -48,18 +43,49 @@ public class WayBillService {
 
     }
 
-    public WayBillById saveWaybill(String su, String sp, SaveWaybillRequest wayBill) {
+    public Result saveWaybill(String su, String sp, WayBillById billById) {
+        SaveWaybill.Waybill waybill = new SaveWaybill.Waybill();
 
-        SaveWaybillResponse.SaveWaybillResult saveWaybillResult = getWayBillsSoap().saveWaybill(su, sp, Mapper.getSoapModel(wayBill));
-        WayBills wayBills = new WayBills();
-//        WayBillsSoap wayBillsSoap12 = wayBills.getWayBillsSoap12();
-//        SaveWaybillResponse.SaveWaybillResult waybillResult = wayBillsSoap12.saveWaybill(su, sp, Mapper.getSoapModel(wayBill));
-
-        WayBillById wayBillById = XmlUnmarshaller.getObjectFromXml(saveWaybillResult.getContent().get(0), WayBillById.class);
-        return wayBillById;
+        waybill.getContent().add(billById);
+        SaveWaybillResponse.SaveWaybillResult saveWaybillResult = getWayBillsSoap().saveWaybill(su, sp, waybill);
+        Integer someint;
+        return XmlUnmarshaller.getObjectFromXml(saveWaybillResult.getContent().get(0), Result.class);
 
 
     }
 
+    public WayBillById getWaybillById(String su, String sp, Integer waybillId) {
+        GetWaybillResponse.GetWaybillResult waybill = getWayBillsSoap().getWaybill(su, sp, waybillId);
+        WayBillById wayBillById = (WayBillById) waybill.getContent().get(0);
+
+
+//        WayBillById objectFromXml = XmlUnmarshaller.getObjectFromXml(waybill.getContent().get(0), WayBillById.class);
+
+        return wayBillById;
+
+    }
+
+    public Boolean confirmWaybill(String su, String sp, Integer waybillId) {
+        boolean confirmWaybill = getWayBillsSoap().confirmWaybill(su, sp, waybillId);
+        return confirmWaybill;
+    }
+
+
+    public String activateWaybill(String su, String sp, Integer waybillId) {
+        return getWayBillsSoap().sendWaybill(su, sp, waybillId);
+    }
+
+    public void getErrorCodes(String su, String sp) {
+        Object errorCodes = getWayBillsSoap().getErrorCodes(su, sp).getContent().get(0);
+        ERROR_CODES error_codes = XmlUnmarshaller.getObjectFromXml(errorCodes, ERROR_CODES.class);
+        List<ERROR_CODE> ec = error_codes.getERROR_CODE();
+        for (int i = 0; i < ec.size(); i++) {
+            ERROR_CODE code = ec.get(i);
+            if (code.TYPE == 1) {
+                System.out.println("NEEDSTOADDVALUE" + i + "(\"" + code.getTEXT() + "\"," + 400 + "," + code.getID() + "),");
+
+            }
+        }
+    }
 
 }

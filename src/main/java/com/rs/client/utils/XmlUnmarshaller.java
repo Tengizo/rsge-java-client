@@ -15,22 +15,35 @@ public class XmlUnmarshaller {
             JAXBContext jaxbContext = JAXBContext.newInstance(cls);
             Unmarshaller um = jaxbContext.createUnmarshaller();
             Object unmarshal = um.unmarshal((Node) xmlObj);
-            return (cls.cast(unmarshal)) ;
+            T result = cls.cast(unmarshal);
+            if (cls == Result.class) {
+                errorCheck((Result) result);
+            }
+            return result;
         } catch (JAXBException e) {
             try {
                 JAXBContext context = JAXBContext.newInstance(Result.class);
                 Unmarshaller umError = context.createUnmarshaller();
                 Result result = (Result) umError.unmarshal((Node) xmlObj);
-                if (result.getSTATUS() == -100) {
-                    throw new RsClientException(result.getText(), ExceptionType.INVALID_USERNAME_OR_PASSWORD, result.getSTATUS());
+
+                ExceptionType exType = ExceptionType.findByStatusCode(result.getSTATUS());
+                if (exType != null) {
+                    throw new RsClientException(exType.getKeyWord(), exType, exType.getRsStatus());
                 }
-            }
-            catch (JAXBException ex) {
+
+            } catch (JAXBException ex) {
                 ex.printStackTrace();
             }
             e.printStackTrace();
         }
         return null;
+    }
+
+    private static void errorCheck(Result cast) {
+        ExceptionType exType = ExceptionType.findByStatusCode(cast.getSTATUS());
+        if (exType != null) {
+            throw new RsClientException(exType.getKeyWord(), exType, exType.getRsStatus());
+        }
     }
 
 

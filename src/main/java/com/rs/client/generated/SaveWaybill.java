@@ -3,12 +3,9 @@ package com.rs.client.generated;
 
 import java.util.ArrayList;
 import java.util.List;
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAnyElement;
-import jakarta.xml.bind.annotation.XmlMixed;
-import jakarta.xml.bind.annotation.XmlRootElement;
-import jakarta.xml.bind.annotation.XmlType;
+
+import com.rs.client.model.WayBillById;
+import jakarta.xml.bind.annotation.*;
 
 
 /**
@@ -49,6 +46,7 @@ import jakarta.xml.bind.annotation.XmlType;
     "waybill"
 })
 @XmlRootElement(name = "save_waybill")
+@XmlSeeAlso(WayBillById.class)
 public class SaveWaybill {
 
     protected String su;

@@ -5,7 +5,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
 
-@XmlRootElement(name = "GOODS")
+@XmlRootElement(name = "GOODS",namespace = "")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = {"ID", "W_NAME", "UNIT_ID", "QUANTITY", "PRICE", "AMOUNT", "BAR_CODE", "A_ID", "VAT_TYPE", "STATUS", "QUANTITY_F", "W_ID"})
 public class GOODS {

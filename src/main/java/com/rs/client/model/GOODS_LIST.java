@@ -4,7 +4,7 @@ import jakarta.xml.bind.annotation.*;
 
 import java.util.List;
 
-@XmlRootElement(name = "GOODS_LIST")
+@XmlRootElement(name = "GOODS_LIST",namespace = "")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = {"GOODS"})
 @XmlSeeAlso({ GOODS.class})
